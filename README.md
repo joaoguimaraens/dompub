@@ -50,3 +50,7 @@ type: verse
 Push para `main` → GitHub Actions faz build automático
 
 Configuração em `astro.config.mjs`.
+
+## Licença
+
+MIT. Ver [LICENSE](LICENSE).
