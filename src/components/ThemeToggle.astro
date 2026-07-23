@@ -1,0 +1,17 @@
+---
+---
+
+<button id="theme-toggle">Claro</button>
+
+<script>
+  const html = document.documentElement
+  const btn = document.getElementById('theme-toggle')
+  btn.textContent = html.getAttribute('data-theme') === 'dark' ? 'Claro' : 'Escuro'
+  btn.style.visibility = 'visible'
+  btn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+    html.setAttribute('data-theme', next)
+    localStorage.setItem('theme', next)
+    btn.textContent = next === 'dark' ? 'Claro' : 'Escuro'
+  })
+</script>

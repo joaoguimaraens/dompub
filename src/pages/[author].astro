@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { getAuthorBySlug, getWorksByAuthor, getAllAuthors } from '../data/utils'
+import { getUrl } from '../lib/url'
+
+export async function getStaticPaths() {
+  const authors = getAllAuthors()
+  return authors.map(a => ({
+    params: { author: a.slug }
+  }))
+}
+
+const { author } = Astro.params
+if (!author) return Astro.redirect('/404')
+const authorData = getAuthorBySlug(author)
+if (!authorData) return Astro.redirect('/404')
+const works = getWorksByAuthor(author)
+---
+
+<Layout title={`${authorData.name} | dompub`}>
+  <a class="back-link" href={getUrl('/')}>&larr; Autores</a>
+
+  <h1>{authorData.name}</h1>
+
+  <ul class="work-list">
+    {works.map(work => (
+      <li>
+        <a href={getUrl(`/${author}/${work.slug}`)}>{work.title}</a>
+      </li>
+    ))}
+  </ul>
+</Layout>

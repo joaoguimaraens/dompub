@@ -1,0 +1,22 @@
+---
+title: Transforma-se o amador na coisa amada
+type: verse
+---
+
+Transforma-se o amador na coisa amada,  
+Por virtude do muito imaginar;  
+Não tenho, logo, mais que desejar,  
+Pois em mim tenho a parte desejada.
+
+Se nela está minha alma transformada,  
+Que mais deseja o corpo de alcançar?  
+Em si somente pode descansar,  
+Pois consigo tal alma está liada.
+
+Mas esta linda e pura semideia,  
+Que, como o acidente em seu sujeito,  
+Assim co'a alma minha se conforma,
+
+Está no pensamento como ideia;  
+E o vivo e puro amor de que sou feito,  
+Como a matéria simples busca a forma.

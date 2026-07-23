@@ -1,0 +1,3 @@
+---
+name: Rainer Maria Rilke
+---

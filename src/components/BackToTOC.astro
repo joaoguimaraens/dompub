@@ -1,0 +1,13 @@
+---
+---
+
+<script>
+  document.querySelectorAll('.work-content h2, .work-content h3').forEach(h => {
+    const a = document.createElement('a')
+    a.href = '#toc'
+    a.className = 'back-to-toc'
+    a.title = 'Voltar'
+    a.textContent = '\u21A9'
+    h.append(' ', a)
+  })
+</script>

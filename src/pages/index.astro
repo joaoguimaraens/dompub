@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { getAllAuthors } from '../data/utils'
+import { getUrl } from '../lib/url'
+
+const authors = getAllAuthors()
+---
+
+<Layout title="dompub">
+  <p class="desc">
+    Obras em domínio público selecionadas. Textos em português, editados e revisados para uma melhor experiência de leitura.
+  </p>
+
+  <h1>Autores</h1>
+
+  <ul class="author-list">
+    {authors.map(author => (
+      <li>
+        <a href={getUrl(`/${author.slug}`)}>{author.name}</a>
+      </li>
+    ))}
+  </ul>
+</Layout>

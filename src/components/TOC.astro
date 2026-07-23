@@ -1,0 +1,24 @@
+---
+import type { HeadingItem } from '../data/utils'
+
+export interface Props {
+  headings: HeadingItem[]
+}
+
+const { headings } = Astro.props
+const hasToc = headings.some((h) => h.depth === 2)
+---
+
+{hasToc && (
+<aside class="toc" id="toc">
+  <div class="toc-title">Índice</div>
+
+  <nav class="toc-list">
+    {headings.filter((h) => h.depth >= 2 && h.depth <= 3).map((h) => (
+      <div class={"toc-item-h" + h.depth}>
+        <a href={"#" + h.slug}>{h.text}</a>
+      </div>
+    ))}
+  </nav>
+</aside>
+)}

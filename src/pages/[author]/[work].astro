@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import TOC from '../../components/TOC.astro'
+import BackToTOC from '../../components/BackToTOC.astro'
+import { getAuthorBySlug, getAllAuthors, getWorksByAuthor, getWorkModule } from '../../data/utils'
+import { getUrl } from '../../lib/url'
+
+export async function getStaticPaths() {
+  const paths = []
+  const authors = getAllAuthors()
+  for (const author of authors) {
+    const works = getWorksByAuthor(author.slug)
+    for (const work of works) {
+      paths.push({ params: { author: author.slug, work: work.slug } })
+    }
+  }
+  return paths
+}
+
+const { author, work } = Astro.params
+if (!author || !work) return Astro.redirect('/404')
+const authorData = getAuthorBySlug(author)
+if (!authorData) return Astro.redirect('/404')
+
+const workModule = getWorkModule(author, work)
+if (!workModule) return Astro.redirect('/404')
+const { frontmatter, Content, getHeadings } = workModule
+const headings = getHeadings()
+const workType = frontmatter.type ?? 'prose'
+---
+
+<Layout title={frontmatter.title + " — " + authorData.name + " | dompub"}>
+  <a class="back-link" href={getUrl(`/${author}`)}>&larr; {authorData.name}</a>
+
+  <h1>{frontmatter.title}</h1>
+
+  <div class="work-with-toc">
+    <TOC headings={headings} />
+
+    <div class:list={['work-content', { verse: workType === 'verse' }]}>
+      <Content />
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="action-link" onclick="window.print()">Imprimir</button>
+  </div>
+</Layout>
+
+<BackToTOC />
