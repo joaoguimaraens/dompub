@@ -47,7 +47,7 @@ Do amor e da justiça compelida,
 Por os erros da gente, em mãos da gente  
 (Como se Deus não fosse) deixa a vida.
 
-Ó Cristão descuidado e negligente!  
+Ó cristão descuidado e negligente!  
 Pondera-o com discurso repousado;  
 E ver-te-ás advertido facilmente.
 
